@@ -1,28 +1,104 @@
-const valor_compra = document.formulario.v_compra;
-const porcentaje_utilidad = document.formulario.p_utilidad;
-const porcentaje_impuesto = document.formulario.p_impuestos;
-const valor_venta = document.formulario.v_venta;
-const ganancia = document.formulario.ganancia;
+const label_1 = document.formulario.label_1;
+const label_2 = document.formulario.label_2;
+const select_1 = document.formulario.select_1;
+const select_2 = document.formulario.select_2;
 
-function calculate() {
-  const compra = parseInt(valor_compra.value);
-  const utilidad = parseInt(porcentaje_utilidad.value);
-  const impuesto = parseInt(porcentaje_impuesto.value);
+function convertir() {
+  const firstLabel = parseInt(label_1.value);
+  const firstSelect = select_1.value;
+  const secondSelect = select_2.value;
 
-  const valor_utilidad = (compra * utilidad) / 100;
-  const valor_impuestos = (compra * impuesto) / 100;
+  switch (firstSelect) {
+    case "Byte":
+      if (secondSelect === "Byte") {
+        label_2.value = firstLabel;
+      }
+      if (secondSelect === "Kilobyte") {
+        label_2.value = firstLabel / 1000;
+      }
+      if (secondSelect === "Megabyte") {
+        label_2.value = firstLabel / 1_000_000;
+      }
+      if (secondSelect === "Gigabyte") {
+        label_2.value = firstLabel / 1_000_000_000;
+      }
+      if (secondSelect === "Terabyte") {
+        label_2.value = firstLabel / 1_000_000_000_000;
+      }
+      break;
 
-  const total_venta = valor_utilidad + valor_impuestos + compra;
-  const ganancia_venta = total_venta - compra - valor_impuestos;
+    case "Kilobyte":
+      if (secondSelect === "Byte") {
+        label_2.value = firstLabel * 1000;
+      }
+      if (secondSelect === "Kilobyte") {
+        label_2.value = firstLabel;
+      }
+      if (secondSelect === "Megabyte") {
+        label_2.value = firstLabel / 1000;
+      }
+      if (secondSelect === "Gigabyte") {
+        label_2.value = firstLabel / 1_000_000;
+      }
+      if (secondSelect === "Terabyte") {
+        label_2.value = firstLabel / 1_000_000_000;
+      }
+      break;
 
-  valor_venta.value = total_venta;
-  ganancia.value = ganancia_venta;
-}
+    case "Megabyte":
+      if (secondSelect === "Byte") {
+        label_2.value = firstLabel * 1_000_000;
+      }
+      if (secondSelect === "Kilobyte") {
+        label_2.value = firstLabel * 1000;
+      }
+      if (secondSelect === "Megabyte") {
+        label_2.value = firstLabel;
+      }
+      if (secondSelect === "Gigabyte") {
+        label_2.value = firstLabel / 1000;
+      }
+      if (secondSelect === "Terabyte") {
+        label_2.value = firstLabel / 1_000_000;
+      }
+      break;
 
-function delete_info() {
-  valor_compra.value = 0;
-  porcentaje_utilidad.value = 0;
-  porcentaje_impuesto.value = 0;
-  valor_venta.value = 0;
-  ganancia.value = 0;
+    case "Gigabyte":
+      if (secondSelect === "Byte") {
+        label_2.value = firstLabel * 1_000_000_000;
+      }
+      if (secondSelect === "Kilobyte") {
+        label_2.value = firstLabel * 1_000_000;
+      }
+      if (secondSelect === "Megabyte") {
+        label_2.value = firstLabel * 1000;
+      }
+      if (secondSelect === "Gigabyte") {
+        label_2.value = firstLabel;
+      }
+      if (secondSelect === "Terabyte") {
+        label_2.value = firstLabel / 1000;
+      }
+      break;
+
+    case "Terabyte":
+      if (secondSelect === "Byte") {
+        label_2.value = firstLabel * 1_000_000_000_000;
+      }
+      if (secondSelect === "Kilobyte") {
+        label_2.value = firstLabel * 1_000_000_000;
+      }
+      if (secondSelect === "Megabyte") {
+        label_2.value = firstLabel * 1_000_000;
+      }
+      if (secondSelect === "Gigabyte") {
+        label_2.value = firstLabel * 1000;
+      }
+      if (secondSelect === "Terabyte") {
+        label_2.value = firstLabel;
+      }
+      break;
+  }
+  //   console.log(label_1.value);
+  //   console.log(select_1.value);
 }

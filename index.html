@@ -28,6 +28,41 @@
       </ul>
     </nav>
   </header>
+
+  <main class="col-auto text-center">
+    <form name="formulario">
+      <div class="input-group mb-3 d-block">
+        <input class="mb-3" type="number" value=0 name="label_1">
+        <br>
+        <select class="xs-40" name="select_1">
+          <option value="Byte" selected>Bytes</option>
+          <option value="Kilobyte">Kilobyte</option>
+          <option value="Megabyte">Megabyte</option>
+          <option value="Gigabyte">Gigabyte</option>
+          <option value="Terabyte">Terabyte</option>
+        </select>
+      </div>
+
+      <div class="input-group mb-3 d-block d-block">
+        <button type="button" class="btn btn-primary" onclick="convertir()">
+          Convertir
+        </button>
+      </div>
+
+      <div class="input-group mb-3 d-block">
+        <select class="mb-3" name="select_2">
+          <option value="Byte">Bytes</option>
+          <option value="Kilobyte" selected>Kilobyte</option>
+          <option value="Megabyte">Megabyte</option>
+          <option value="Gigabyte">Gigabyte</option>
+          <option value="Terabyte">Terabyte</option>
+        </select>
+        <br>
+        <input class="mb-3" type="number" name="label_2" readonly>
+      </div>
+    </form>
+  </main>
 </body>
+<script src="./js/index.js"></script>
 
 </html>
